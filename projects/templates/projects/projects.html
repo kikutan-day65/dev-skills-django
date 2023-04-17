@@ -36,11 +36,9 @@
                   {{project.title}}
                 </h3>
 
-                <!-- the url doesn't work -->
                 <p>
                   <a class="project__author" href="{% url 'user-profile' project.owner.id %}">By {{project.owner.name}}</a>
                 </p>
-                <!-- the url doesn't work -->
 
                 <p class="project--rating">
                   <span style="font-weight: bold">{{project.vote_ratio}}</span> Positive Feedback
