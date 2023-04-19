@@ -29,13 +29,13 @@ def login_user(request):
             login(request, user)
             return redirect('profiles')
         else:
-            messages.error(request,'Username or password is in correct')
+            messages.error(request,'Username or password is incorrect')
 
     return render(request, 'users/login_register.html')
 
 def logout_user(request):
     logout(request)
-    messages.error(request, 'User was logged out!')
+    messages.info(request, 'User was logged out!')
     return redirect('login')
 
 def register_user(request):
