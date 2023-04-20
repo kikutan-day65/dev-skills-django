@@ -29,7 +29,7 @@ def create_project(request):
             project = form.save(commit=False) # create an object
             project.owner = profile
             project.save()
-            return redirect('projects')  # redirect to the designated path
+            return redirect('account')  # redirect to the designated path
 
     context = {'form': form}
     return render(request, 'projects/project_form.html', context)
@@ -46,7 +46,7 @@ def update_project(request, pk):
         # check if the form is valid
         if form.is_valid():
             form.save() # create an object
-            return redirect('projects')  # redirect to the designated path
+            return redirect('account')  # redirect to the designated path
 
     context = {'form': form}
     return render(request, 'projects/project_form.html', context)
