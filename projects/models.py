@@ -25,6 +25,11 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title   #  to show the title in the admin panel
+    
+    class Meta:
+        ordering = [
+            '-created', # descinding order based on created time
+        ]
 
 class Review(models.Model):
     VOTE_TYPE = (
