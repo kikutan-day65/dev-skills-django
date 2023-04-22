@@ -27,8 +27,11 @@ class Project(models.Model):
         return self.title   #  to show the title in the admin panel
     
     class Meta:
+        # order the projects based on vote ratio, total, and title
         ordering = [
-            '-created', # descinding order based on created time
+            '-vote_ratio',
+            '-vote_total',
+            'title'
         ]
     
     @property
