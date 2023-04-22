@@ -33,6 +33,11 @@ class Project(models.Model):
             '-vote_total',
             'title'
         ]
+
+    @property
+    def reviewers(self):
+        queryset = self.review_set.all().values_list('owner__id', flat=True)
+        return queryset
     
     @property
     def get_vote_count(self):
