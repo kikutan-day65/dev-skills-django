@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 
 from .models import Project
-from .forms import ProjectForm
+from .forms import ProjectForm, ReviewForm
 from .utils import search_project, paginate_projects
 
 def projects(request):
@@ -22,7 +22,8 @@ def projects(request):
 
 def project(request, pk):
     projectObj = Project.objects.get(id=pk)
-    return render(request, 'projects/single-project.html', {'project': projectObj})
+    form = ReviewForm()
+    return render(request, 'projects/single-project.html', {'project': projectObj, 'form': form})
 
 @login_required(login_url="login")
 def create_project(request):
