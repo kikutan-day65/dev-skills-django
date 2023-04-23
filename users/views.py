@@ -150,6 +150,7 @@ def update_skill(request, pk):
     }
     return render(request, 'users/skill_form.html', context)
 
+@login_required(login_url='login')
 def delete_skill(request, pk):
     profile = request.user.profile
     skill = profile.skill_set.get(id=pk)
@@ -163,3 +164,8 @@ def delete_skill(request, pk):
         'object': skill,
     }
     return render(request, 'delete_template.html', context)
+
+@login_required(login_url='login')
+def inbox(request):
+    context = {}
+    return render(request, 'users/inbox.html', context)
